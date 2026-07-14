@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>IMC Adolescente</title>
+    
+    <!-- PWA Meta Tags para iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="IMC App">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora IMC</h1>
+            <p>Para adolescentes (MINSAL)</p>
+        </header>
+
+        <div class="card">
+            <div class="input-group">
+                <label for="altura">Altura (cm)</label>
+                <!-- pattern="\d*" invoca el teclado numérico de iOS -->
+                <input type="number" id="altura" placeholder="Ej: 170" pattern="\d*" inputmode="numeric" required>
+            </div>
+            
+            <div class="divider"></div>
+
+            <div class="input-group">
+                <label for="peso">Peso (kg)</label>
+                <input type="number" id="peso" placeholder="Ej: 58" pattern="\d*" inputmode="numeric" required>
+            </div>
+        </div>
+
+        <button id="calcularBtn" class="ios-button">Calcular IMC</button>
+
+        <div id="resultado" class="resultado-card hidden">
+            <h2 id="imc-valor">--</h2>
+            <p id="imc-diagnostico">--</p>
+            <p class="nota-medica">Nota: El diagnóstico clínico en adolescentes requiere contrastar este valor con las curvas de crecimiento de la OMS vigentes en Chile según edad exacta y sexo biológico.</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
