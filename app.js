@@ -31,15 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (imc < 18.5) {
             diagnostico = "Bajo peso";
             color = "#FF9500"; // Naranja iOS
-        } else if (imc >= 18.5 && imc < 24.9) {
-            diagnostico = "Normopeso";
+        } else if (imc >= 18.5 && imc <= 24.9) {
+            diagnostico = "Saludable";
             color = "#34C759"; // Verde iOS
-        } else if (imc >= 25 && imc < 29.9) {
+        } else if (imc >= 25 && imc <= 29.9) {
             diagnostico = "Sobrepeso";
-            color = "#FF9500";
-        } else {
+            color = "#FF9500"; // Naranja iOS
+        } else if (imc >= 30 && imc <= 34.9) {
             diagnostico = "Obesidad";
             color = "#FF3B30"; // Rojo iOS
+        } else if (imc >= 35) {
+            diagnostico = "Obesidad extrema";
+            color = "#8B0000"; // Rojo oscuro
         }
 
         imcDiagnostico.textContent = diagnostico;
