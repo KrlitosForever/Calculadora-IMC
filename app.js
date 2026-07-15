@@ -6,9 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const imcValor = document.getElementById('imc-valor');
     const imcDiagnostico = document.getElementById('imc-diagnostico');
 
+    // Acepta tanto "172.5" como "172,5" (teclado decimal de iOS usa coma en es-CL)
+    const parseDecimal = valor => parseFloat(String(valor).replace(',', '.'));
+
     calcularBtn.addEventListener('click', () => {
-        const alturaCm = parseFloat(alturaInput.value);
-        const pesoKg = parseFloat(pesoInput.value);
+        const alturaCm = parseDecimal(alturaInput.value);
+        const pesoKg = parseDecimal(pesoInput.value);
 
         if (!alturaCm || !pesoKg || alturaCm <= 0 || pesoKg <= 0) {
             alert("Por favor, ingresa valores válidos.");

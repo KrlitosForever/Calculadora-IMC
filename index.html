@@ -28,15 +28,16 @@
         <div class="card">
             <div class="input-group">
                 <label for="altura">Altura (cm)</label>
-                <!-- inputmode="decimal" invoca el teclado numérico de iOS con botón de punto decimal -->
-                <input type="number" id="altura" placeholder="Ej: 172.5" step="0.1" inputmode="decimal" required>
+                <!-- type="text" + inputmode="decimal": con type="number" iOS deshabilita la coma
+                     porque el spec de HTML solo acepta punto como separador decimal -->
+                <input type="text" id="altura" placeholder="Ej: 172.5" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
             </div>
 
             <div class="divider"></div>
 
             <div class="input-group">
                 <label for="peso">Peso (kg)</label>
-                <input type="number" id="peso" placeholder="Ej: 68.2" step="0.1" inputmode="decimal" required>
+                <input type="text" id="peso" placeholder="Ej: 68.2" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
             </div>
         </div>
 
