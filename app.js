@@ -7,12 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const imcDiagnostico = document.getElementById('imc-diagnostico');
 
     calcularBtn.addEventListener('click', () => {
-        // Parsear como enteros
-        const alturaCm = parseInt(alturaInput.value, 10);
-        const pesoKg = parseInt(pesoInput.value, 10);
+        const alturaCm = parseFloat(alturaInput.value);
+        const pesoKg = parseFloat(pesoInput.value);
 
         if (!alturaCm || !pesoKg || alturaCm <= 0 || pesoKg <= 0) {
-            alert("Por favor, ingresa valores enteros válidos.");
+            alert("Por favor, ingresa valores válidos.");
             return;
         }
 
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Mostrar resultado (1 decimal)
         imcValor.textContent = imc.toFixed(1);
-        
+
         // Categorización general (Referencia simple)
         // OJO: En adolescentes reales se usan percentiles OMS, pero esto da una guía base
         let diagnostico = "";
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (imc >= 30 && imc <= 34.9) {
             diagnostico = "Obesidad";
             color = "#FF3B30"; // Rojo iOS
-        } else if (imc >= 35) {
+        } else {
             diagnostico = "Obesidad extrema";
             color = "#8B0000"; // Rojo oscuro
         }
@@ -50,12 +49,23 @@ document.addEventListener('DOMContentLoaded', () => {
         imcValor.style.color = color;
 
         resultadoDiv.classList.remove('hidden');
+        // Forzar reflow para reiniciar la animación de aparición cada vez
+        resultadoDiv.classList.remove('show');
+        void resultadoDiv.offsetWidth;
+        resultadoDiv.classList.add('show');
+
+        // Reestablecer los campos para poder calcular otro IMC
+        alturaInput.value = '';
+        pesoInput.value = '';
+        alturaInput.focus();
     });
 
-    // Registrar Service Worker para la PWA
+    // Registrar Service Worker para la PWA (funcionamiento offline)
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js')
-            .then(reg => console.log('Service Worker registrado correctamente', reg))
-            .catch(err => console.warn('Error al registrar Service Worker', err));
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registrado correctamente', reg))
+                .catch(err => console.warn('Error al registrar Service Worker', err));
+        });
     }
 });
