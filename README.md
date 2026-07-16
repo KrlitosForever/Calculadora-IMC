@@ -40,13 +40,16 @@ Luego abre `http://localhost:8000` en el navegador.
 ## Estructura del proyecto
 
 ```text
-├── index.html       # Estructura de la app
-├── style.css        # Estilos con estética iOS (incluye modo oscuro)
-├── app.js           # Lógica de cálculo de IMC y registro del Service Worker
-├── sw.js            # Service Worker (cache offline)
-├── manifest.json     # Manifest de la PWA
-├── icon-192.png     # Ícono de la app (192x192)
-└── icon-512.png     # Ícono de la app (512x512)
+├── index.html            # Estructura de la app
+├── manifest.json         # Manifest de la PWA
+├── sw.js                 # Service Worker (cache offline)
+├── css/
+│   └── style.css         # Estilos con estética iOS (incluye modo oscuro)
+├── js/
+│   └── app.js             # Lógica de cálculo de IMC y registro del Service Worker
+└── icons/
+    ├── icon-192.png      # Ícono de la app (192x192)
+    └── icon-512.png      # Ícono de la app (512x512)
 ```
 
 ## Licencia

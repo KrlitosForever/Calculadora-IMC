@@ -1,12 +1,12 @@
-const CACHE_NAME = 'imc-app-v2';
+const CACHE_NAME = 'imc-app-v3';
 const urlsToCache = [
   './',
   './index.html',
-  './style.css',
-  './app.js',
+  './css/style.css',
+  './js/app.js',
   './manifest.json',
-  './icon-192.png',
-  './icon-512.png'
+  './icons/icon-192.png',
+  './icons/icon-512.png'
 ];
 
 self.addEventListener('install', event => {
