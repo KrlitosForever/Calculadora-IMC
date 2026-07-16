@@ -48,8 +48,15 @@ Luego abre `http://localhost:8000` en el navegador.
 ├── js/
 │   └── app.js             # Lógica de cálculo de IMC y registro del Service Worker
 └── icons/
-    ├── icon-192.png      # Ícono de la app (192x192)
-    └── icon-512.png      # Ícono de la app (512x512)
+    ├── icon.svg          # Ícono vectorial (favicon moderno)
+    ├── icon-16.png       # Favicon (pestaña del navegador)
+    ├── icon-32.png       # Favicon (pestaña del navegador)
+    ├── icon-120.png      # apple-touch-icon (iPhone @2x)
+    ├── icon-152.png      # apple-touch-icon (iPad)
+    ├── icon-167.png      # apple-touch-icon (iPad Pro)
+    ├── icon-180.png      # apple-touch-icon (iPhone @3x)
+    ├── icon-192.png      # Ícono PWA (Android/Chrome)
+    └── icon-512.png      # Ícono PWA (Android/Chrome, splash screen)
 ```
 
 ## Licencia

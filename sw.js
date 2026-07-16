@@ -1,10 +1,17 @@
-const CACHE_NAME = 'imc-app-v3';
+const CACHE_NAME = 'imc-app-v4';
 const urlsToCache = [
   './',
   './index.html',
   './css/style.css',
   './js/app.js',
   './manifest.json',
+  './icons/icon.svg',
+  './icons/icon-16.png',
+  './icons/icon-32.png',
+  './icons/icon-120.png',
+  './icons/icon-152.png',
+  './icons/icon-167.png',
+  './icons/icon-180.png',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];
